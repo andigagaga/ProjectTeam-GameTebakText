@@ -1,0 +1,35 @@
+{
+    "avatars": [
+      {
+        "id": 1,
+        "jumlahDiamond": 100,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      },
+      {
+        "id": 2,
+        "jumlahDiamond": 150,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      },
+      {
+        "id": 3,
+        "jumlahDiamond": 75,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      },
+      {
+        "id": 4,
+        "jumlahDiamond": 200,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      },
+      {
+        "id": 5,
+        "jumlahDiamond": 200,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      },
+      {
+        "id": 6,
+        "jumlahDiamond": 200,
+        "image_src": "https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556784.jpg?w=740&t=st=1699863637~exp=1699864237~hmac=917fc8bb5ccad987e9d16cbcc86c09b65b2e263bb5028171372b0c9bdf93dca2"
+      }
+    ]
+  }
+  

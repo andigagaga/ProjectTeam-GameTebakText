@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// Misalnya, dalam file App.js
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import NavigationStack from "./src/AppNavigation/index";
+import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { config } from "@gluestack-ui/config";
+import { StatusBar } from "react-native";
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GluestackUIProvider config={config}>
+      <StatusBar hidden={true} />
+      <NavigationContainer>
+        <NavigationStack />
+      </NavigationContainer>
+    </GluestackUIProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
