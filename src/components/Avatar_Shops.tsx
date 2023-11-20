@@ -3,9 +3,14 @@ import { FlatList, Image, ImageBackground, Text, View } from "react-native";
 import dummyDiamond from "../dataDummy/dummyDiamond.json";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import { useNavigation } from "@react-navigation/native";
+
 import { Entypo } from "@expo/vector-icons";
 
 export default function Diamond_Info() {
+
+  const navigation = useNavigation();
+
   return (
     <ImageBackground
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -85,6 +90,7 @@ export default function Diamond_Info() {
                 borderColor: "black",
                 borderWidth: 2,
               }}
+              onPress={() => navigation.goBack()}
             >
               <Text
                 style={{

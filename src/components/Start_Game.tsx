@@ -22,6 +22,10 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Start_Game({ navigation }: any) {
+
+  const goToQuizGame = () => {
+    navigation.navigate("Quiz_Game");
+  };
   const goToDiamondInfo = () => {
     navigation.navigate("Diamond_Info");
   };
@@ -138,7 +142,7 @@ export default function Start_Game({ navigation }: any) {
           resizeMode="cover"
           style={{ width: 180, height: 180, marginBottom: 20 }}
         />
-        <Button style={{ margin: 0 }}>
+        <Button style={{ margin: 0 }} onPress={goToQuizGame}>
           <ButtonText>Start Game</ButtonText>
         </Button>
       </View>

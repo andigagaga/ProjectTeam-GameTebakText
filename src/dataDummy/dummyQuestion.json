@@ -1,0 +1,27 @@
+{
+    "questions": [
+      {
+        "question": "Siapakah presiden indonesia 2024?",
+        "options": {
+          "A": "prabowo subianto",
+          "B": "ganjar pranowo",
+          "C": "anies baswedan",
+          "D": "guswandi",
+          "E": "banteng"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Apa ibu kota Indonesia?",
+        "options": {
+          "A": "Jakarta",
+          "B": "Surabaya",
+          "C": "Bandung",
+          "D": "Medan",
+          "E": "Semarang"
+        },
+        "correctAnswer": "A"
+      }
+    ]
+  }
+  

@@ -5,7 +5,8 @@ import Start_Game from "../components/Start_Game";
 import Leader_Board from "../components/Leader_Board";
 import Quiz_Game from "../components/QuizGame";
 
-import Diamond_Info from "../components/Diamond_Info";
+import Diamond_Info from "../components/Avatar_Shops";
+import Shops_Diamonds from "../components/Shops_Diamonds";
 
 const Stack = createStackNavigator();
 
@@ -30,16 +31,25 @@ const NavigationStack = () => {
        options={{
         headerShown: false,
 
-        title: "My home",
+        title: "Diamond_Info",
       }}
       />
+      <Stack.Screen name="Shops_Diamonds" component={Shops_Diamonds}  options={{
+          headerShown: false,
+
+          title: "Shops_Diamonds",
+        }}/>
       <Stack.Screen name="Avatar_Screen" component={Avatar_Screen} options={{
         headerShown: false,
 
         title: "Avatar_Screen",
       }}/>
+      <Stack.Screen name="Quiz_Game" component={Quiz_Game} options={{
+        headerShown: false,
+
+        title: "Quiz_Game",
+      }}/>
       <Stack.Screen name="Leader_Board" component={Leader_Board}/>
-      <Stack.Screen name="Quiz_Game" component={Quiz_Game} />
     </Stack.Navigator>
   );
 };

@@ -7,9 +7,7 @@ import { Text, Button } from "@gluestack-ui/themed";
 export default function Home({ navigation }: any) {
   // const navigation = useNavigation();
 
-  const goToQuizGame = () => {
-    navigation.navigate("Quiz_Game");
-  };
+  
   return (
     <ImageBackground
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -27,11 +25,11 @@ export default function Home({ navigation }: any) {
       {/* <ButtonSign /> */}
       <View style={{ marginTop: 20 , flex: 1, justifyContent: "center", alignItems: "center"}}>
 
-      <TouchableOpacity style={{ marginTop: 20 }} onPress={goToQuizGame}>
+      {/* <TouchableOpacity style={{ marginTop: 20 }} onPress={goToQuizGame}>
         <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
           test
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       </View>
 
         </View>
