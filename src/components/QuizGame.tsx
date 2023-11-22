@@ -14,10 +14,14 @@ interface Question {
   correctAnswer: string;
 }
 
-export default function QuizGame({navigation} : any) {
+export default function QuizGame({ navigation }: any) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+
+  const [timeReamaining, setTimeRemaining] = useState(10);
+  const initiatime = 10;
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
   // untuk nge fetch data
   useEffect(() => {
@@ -34,7 +38,24 @@ export default function QuizGame({navigation} : any) {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeRemaining((prevTime) => prevTime - 1);
+    }, 1000);
+
+    if (timeReamaining === 0) {
+      handleAnswer("");
+    }
+
+    return () => clearInterval(timer);
+  }, [currentQuestionIndex, timeReamaining]);
+
   const handleAnswer = (selectedOption: string) => {
+    if (timer) {
+      clearInterval(timer);
+    }
+    setTimeRemaining(initiatime);
+
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
     if (selectedOption === correctAnswer) {
@@ -48,7 +69,8 @@ export default function QuizGame({navigation} : any) {
       // Menampilkan hasil setelah semua pertanyaan dijawab
       alert("Score Anda: " + score);
 
-      navigation.navigate('Start_Game');
+      navigation.navigate('Start_Game', { score, showScore: true });
+      
 
       // Mengatur ulang indeks pertanyaan dan skor
       setCurrentQuestionIndex(0);
@@ -73,22 +95,79 @@ export default function QuizGame({navigation} : any) {
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Text
+        <View
           style={{
-            fontSize: 18,
-            fontWeight: "bold",
-            marginBottom: 10,
-            alignSelf: "center",
-            color: "white",
-            textAlign: "center",
-            textTransform: "uppercase",
-            letterSpacing: 2,
-            textShadowColor: "black",
-            textShadowOffset: { width: 2, height: 2 },
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 20,
           }}
         >
-          Scor Anda: {score}
-        </Text>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              marginBottom: 10,
+              alignSelf: "center",
+              color: "green",
+              textAlign: "center",
+              textTransform: "uppercase",
+              letterSpacing: 2,
+              textShadowColor: "black",
+              textShadowOffset: { width: 2, height: 2 },
+            }}
+          >
+            Scor Anda:
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "bold",
+                marginBottom: 10,
+                alignSelf: "center",
+                color: score > 50 ? "green" : "red",
+                textAlign: "center",
+                textTransform: "uppercase",
+                letterSpacing: 2,
+                textShadowColor: "black",
+                textShadowOffset: { width: 2, height: 2 },
+              }}
+            >
+              {score}
+            </Text>
+          </Text>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              marginBottom: 10,
+              alignSelf: "center",
+              color: "black",
+              textAlign: "center",
+              textTransform: "uppercase",
+              letterSpacing: 2,
+              textShadowColor: "black",
+              textShadowOffset: { width: 2, height: 2 },
+            }}
+          >
+            Times:
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "bold",
+                marginBottom: 10,
+                alignSelf: "center",
+                color: timeReamaining > 3 ? "green" : "red",
+                textAlign: "center",
+                textTransform: "uppercase",
+                letterSpacing: 2,
+                textShadowColor: "black",
+                textShadowOffset: { width: 2, height: 2 },
+              }}
+            >
+              {" "}
+              {timeReamaining}
+            </Text>
+          </Text>
+        </View>
         <View style={styles.questionContainer}>
           <Text
             style={{
@@ -112,6 +191,7 @@ export default function QuizGame({navigation} : any) {
           {Object.entries(questions[currentQuestionIndex].options).map(
             ([key, value]) => (
               <TouchableOpacity
+                key={key}
                 style={styles.optionButton}
                 onPress={() => handleAnswer(key)}
               >

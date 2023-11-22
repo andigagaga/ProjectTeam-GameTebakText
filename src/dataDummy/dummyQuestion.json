@@ -21,6 +21,94 @@
           "E": "Semarang"
         },
         "correctAnswer": "A"
+      },
+      {
+        "question": "Apa nama sungai terpanjang di dunia?",
+        "options": {
+          "A": "Amazon",
+          "B": "Nile",
+          "C": "Yangtze",
+          "D": "Mississippi",
+          "E": "Ganges"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Siapa penemu lampu pijar?",
+        "options": {
+          "A": "Thomas Edison",
+          "B": "Nikola Tesla",
+          "C": "Alexander Graham Bell",
+          "D": "Marie Curie",
+          "E": "Galileo Galilei"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Berapa jumlah planet di Tata Surya?",
+        "options": {
+          "A": "7",
+          "B": "8",
+          "C": "9",
+          "D": "10",
+          "E": "11"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "question": "Apa warna langit saat matahari terbenam?",
+        "options": {
+          "A": "Biru",
+          "B": "Merah",
+          "C": "Kuning",
+          "D": "Orange",
+          "E": "Ungu"
+        },
+        "correctAnswer": "B"
+      },
+      {
+        "question": "Siapa penulis novel 'Laskar Pelangi'?",
+        "options": {
+          "A": "Andrea Hirata",
+          "B": "Tere Liye",
+          "C": "Dee Lestari",
+          "D": "Raditya Dika",
+          "E": "Habiburrahman El Shirazy"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Apa nama negara yang memiliki bentuk seperti sepatu?",
+        "options": {
+          "A": "Italia",
+          "B": "Spanyol",
+          "C": "Belanda",
+          "D": "Jepang",
+          "E": "India"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Siapa presiden pertama Amerika Serikat?",
+        "options": {
+          "A": "George Washington",
+          "B": "Thomas Jefferson",
+          "C": "Abraham Lincoln",
+          "D": "John F. Kennedy",
+          "E": "Barack Obama"
+        },
+        "correctAnswer": "A"
+      },
+      {
+        "question": "Apa nama benua terbesar di dunia?",
+        "options": {
+          "A": "Asia",
+          "B": "Afrika",
+          "C": "Amerika",
+          "D": "Eropa",
+          "E": "Australia"
+        },
+        "correctAnswer": "A"
       }
     ]
   }

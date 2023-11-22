@@ -11,8 +11,8 @@ import {
   EditIcon,
   InfoIcon,
 } from "@gluestack-ui/themed";
-import React from "react";
-import { Image, ImageBackground, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { Image, ImageBackground, Pressable, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 // animation lootie
@@ -20,14 +20,27 @@ import LottieView from "lottie-react-native";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "@clerk/clerk-expo";
 
-export default function Start_Game({ navigation }: any) {
+import { Entypo } from "@expo/vector-icons";
+
+export default function Start_Game({ navigation, route }: any) {
+  const { signOut, isSignedIn } = useAuth();
+  const { score } = route.params || {};
+
+  useEffect(() => {
+    console.log("Skor Anda:", score);
+  }, [score]);
 
   const goToQuizGame = () => {
     navigation.navigate("Quiz_Game");
   };
   const goToDiamondInfo = () => {
     navigation.navigate("Diamond_Info");
+  };
+
+  const goToShopsDiamond = () => {
+    navigation.navigate("Shops_Diamonds");
   };
 
   return (
@@ -55,29 +68,65 @@ export default function Start_Game({ navigation }: any) {
               resizeMode="cover"
               style={{ width: 80, height: 80, marginLeft: 10, marginTop: 5 }}
             />
+            <View
+              style={{
+                padding: 5,
+                borderRadius: 5,
+              }}
+            >
+              {isSignedIn && (
+                <View
+                  style={{
+                    padding: 10,
+                    backgroundColor: "red",
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "40%",
+                    borderColor: "white",
+                    borderWidth: 1,
+                    marginLeft: 40,
+                  }}
+                >
+                  <TouchableOpacity onPress={() => signOut()}>
+                    <View style={{ display: "flex", flexDirection: "row" }}>
+                      <View>
+                        <Entypo name="log-out" size={24} color="white" />
+                      </View>
+                      <View>
+                        <Text style={{ color: "white" }}>Log out</Text>
+                      </View>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
           </View>
           <View style={{ margin: 30 }}>
-            <Button
-              size="sm"
-              variant="solid"
-              action="primary"
-              isDisabled={false}
-              isFocusVisible={false}
-              bgColor="white"
+            <TouchableOpacity
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "white",
+                borderRadius: 5,
+                padding: 8,
+              }}
+              onPress={goToShopsDiamond}
             >
               <Image
                 source={require("../../assets/image_diamond.png")}
-                style={{ width: 50, height: 50 }}
+                style={{ width: 50, height: 20 }}
               />
               <ButtonText style={{ color: "black" }}>Add </ButtonText>
               <ButtonIcon style={{ color: "black" }} as={AddIcon} />
-            </Button>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
       <View
         style={{
-          marginTop: 135,
+          marginTop: 80,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -125,6 +174,23 @@ export default function Start_Game({ navigation }: any) {
         >
           Molusca_Bertulang
         </Text>
+        {route.params?.showScore && (
+          <Text
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: 20,
+              marginTop: 20,
+              backgroundColor: "green",
+              padding: 10,
+              borderRadius: 10,
+              width: 150,
+            }}
+          >
+            Scorr Anda:{" "}
+            <Text style={{ color: score > 50 ? "white" : "red" }}>{score}</Text>
+          </Text>
+        )}
       </View>
       <View
         style={{
